@@ -1,0 +1,20 @@
+{
+  "name": "dynamic-landing-page",
+  "version": "1.0.0",
+  "description": "A dynamic landing page built with html, css, and javaScript for Udacity's frontend developer nanodegree",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LalaIAm/dynamic-landing-page.git"
+  },
+  "keywords": [
+    "dynamic",
+    "javascript",
+    "menu"
+  ],
+  "author": "Lauren Thorud",
+  "bugs": {
+    "url": "https://github.com/LalaIAm/dynamic-landing-page/issues"
+  },
+  "homepage": "https://github.com/LalaIAm/dynamic-landing-page#readme"
+}
