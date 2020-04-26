@@ -13,7 +13,7 @@
 
 > A dynamic landing page built with html, css, and javaScript for Udacity's frontend developer nanodegree
 
-##Table of Contents:
+## Table of Contents:
 
 - [About](#about)
 - [Demo](https://lalaiam.github.io/dynamic-landing-page)
@@ -22,13 +22,13 @@
 - [Issues and Contributing](#contributing)
 - [License](#license)
 
-##About
+## About
 
 This is a dynamic landing page that was built for Udacity's Frontend Developer Nanodegree. It uses Javascript to update the nav menu dynamically. 
 
 The background of the different sections change color and opacity when a section is in the viewport, depending on what percentage of the section is in view.
 
-##Want to take a look? Checkout the [Demo](https://lalaiam.github.io/dynamic-landing-page)
+## Want to take a look? Checkout the [Demo](https://lalaiam.github.io/dynamic-landing-page)
 
 
 ### 🏠 [Homepage](https://github.com/LalaIAm/dynamic-landing-page#readme)
