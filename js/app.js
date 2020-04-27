@@ -48,7 +48,7 @@ function buildThresholdList() {
 	}
 
 	thresholds.push(0);
-	console.log(thresholds);
+	//console.log(thresholds);
 	return thresholds;
 }
 
@@ -81,18 +81,21 @@ function createNav() {
 
 		anchor.textContent = data;
 		anchor.setAttribute('class', 'menu__link');
-		anchor.setAttribute( 'href', `#${ id }` );
-		
-		anchor.onclick = ( () => {
-			event.preventDefault()
-			nodeList[i].scrollIntoView({behavior: "smooth"})
-		})
+		anchor.setAttribute('id', `anchor-${id}`);
+
+		anchor.onclick = () => {
+			event.preventDefault();
+			nodeList[i].scrollIntoView({ behavior: 'smooth' });
+		};
+
 		let li = document.createElement('li');
 		li.appendChild(anchor);
 
 		nav.appendChild(li);
 	}
 }
+
+// Let menu show which section is active.
 
 //add event listener to "listen" for when sections come into view.
 window.addEventListener(
@@ -111,18 +114,24 @@ window.addEventListener(
 
 function handleIntersect(entries, observer) {
 	entries.forEach((entry) => {
-		if (entry.intersectionRatio > .7) {
+		const entryId = entry.target.id;
+
+		const menuItem = document.getElementById(`anchor-${entryId}`);
+
+		if (entry.intersectionRatio > 0.7) {
 			entry.target.className = 'active';
+
+			menuItem.className = 'active-anchor';
+
 			entry.target.style.backgroundColor = activeColor.replace(
 				'ratio',
 				entry.intersectionRatio
 			);
 		} else {
 			entry.target.className = '';
-			entry.target.style.backgroundColor = ''
+			entry.target.style.backgroundColor = '';
+			menuItem.className = '';
 		}
-
-
 	});
 }
 
