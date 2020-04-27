@@ -42,7 +42,7 @@ function buildThresholdList() {
 
 	for (let i = 1.0; i <= numSteps; i++) {
 		let ratio = (i - 2) / numSteps;
-		if (ratio > 0) {
+		if (ratio > 0.5) {
 			thresholds.push(ratio);
 		}
 	}
@@ -81,7 +81,12 @@ function createNav() {
 
 		anchor.textContent = data;
 		anchor.setAttribute('class', 'menu__link');
-		anchor.setAttribute('href', `#${id}`);
+		anchor.setAttribute( 'href', `#${ id }` );
+		
+		anchor.onclick = ( () => {
+			event.preventDefault()
+			nodeList[i].scrollIntoView({behavior: "smooth"})
+		})
 		let li = document.createElement('li');
 		li.appendChild(anchor);
 
@@ -102,10 +107,11 @@ window.addEventListener(
 	false
 );
 
-// Add class 'active' to section when near top of viewport
+// Add class 'active' to section when near top of viewport\
+
 function handleIntersect(entries, observer) {
 	entries.forEach((entry) => {
-		if (entry.intersectionRatio > prevRatio) {
+		if (entry.intersectionRatio > .7) {
 			entry.target.className = 'active';
 			entry.target.style.backgroundColor = activeColor.replace(
 				'ratio',
@@ -113,13 +119,10 @@ function handleIntersect(entries, observer) {
 			);
 		} else {
 			entry.target.className = '';
-			entry.target.style.color = activeColor.replace(
-				'ratio',
-				entry.intersectionRatio
-			);
+			entry.target.style.backgroundColor = ''
 		}
 
-		prevRatio = entry.intersectionRatio;
+
 	});
 }
 
